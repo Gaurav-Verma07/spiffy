@@ -1,25 +1,13 @@
 .container {
-  /* height: rem(700px); */
-  /* padding: var(--mantine-spacing-md); */
-  display: flex;
-  /* flex-direction: column; */
-  padding-top: rem(50px);
+  padding-top: rem(20px);
 }
 
 .fields {
-  position: fixed;
-  width: rem(200px);
-  height: fit-content;
-  margin-right: rem(50px);
-  /* border-right: rem(1px) solid
-    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
-  /* flex: 1; */
-  z-index: 10;
 }
 
 .mainBox {
   margin: 0 auto;
-  justify-self: end;
+  width: 100% !important;
 }
 
 .header {
@@ -39,30 +27,6 @@
   border-radius: var(--mantine-radius-sm);
   font-weight: 500;
   cursor: pointer;
-
-  @mixin hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-6)
-    );
-    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
-
-    .linkIcon {
-      color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
-    }
-  }
-
-  &[data-active] {
-    &,
-    &:hover {
-      background-color: var(--mantine-color-blue-light);
-      color: var(--mantine-color-blue-light-color);
-
-      .linkIcon {
-        color: var(--mantine-color-blue-light-color);
-      }
-    }
-  }
 }
 
 .linkIcon {
