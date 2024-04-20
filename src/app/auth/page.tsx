@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { AuthenticationForm } from '@/components/Authentication/Authentication';
+import Authentication from '@/components/Authentication/Authentication';
+import HeroHeader from '@/components/HeroHeader/HeroHeader';
 
 export default function PrivacyPolicyPage() {
   return (
     <main>
-      <AuthenticationForm />
+      <HeroHeader />
+      <Authentication />
     </main>
   );
 }
