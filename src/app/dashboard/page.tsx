@@ -1,12 +1,9 @@
 'use client';
 
-import Dashboard from 'components/Dashboard/Dashboard';
 import React from 'react';
 
+import Dashboard from '@/components/Dashboard/Dashboard';
+
 export default function PrivacyPolicyPage() {
-  return (
-    <main>
-      <Dashboard />
-    </main>
-  );
+  return <Dashboard />;
 }

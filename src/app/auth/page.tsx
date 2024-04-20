@@ -1,8 +1,6 @@
-'use client';
-
-import { AuthenticationForm } from 'components/Authentication/Authentication';
-import Signup from 'components/Signup/Signup';
 import React from 'react';
+
+import { AuthenticationForm } from '@/components/Authentication/Authentication';
 
 export default function PrivacyPolicyPage() {
   return (

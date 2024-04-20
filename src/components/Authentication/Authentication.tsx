@@ -1,23 +1,26 @@
 'use client';
-import { useToggle, upperFirst } from '@mantine/hooks';
-import { useForm } from '@mantine/form';
 import {
-  TextInput,
-  PasswordInput,
-  Text,
-  Paper,
-  Group,
-  PaperProps,
-  Button,
-  Divider,
-  Checkbox,
   Anchor,
-  Stack,
   Box,
+  Button,
+  Checkbox,
+  Divider,
+  Group,
+  Paper,
+  PaperProps,
+  PasswordInput,
+  Stack,
+  Text,
+  TextInput,
 } from '@mantine/core';
-import GoogleButton from 'components/Authentication/GoogleButton';
-import classes from './Authentication.module.css';
+import { useForm } from '@mantine/form';
+import { upperFirst, useToggle } from '@mantine/hooks';
 import { useRouter } from 'next/navigation';
+import { SyntheticEvent } from 'react';
+
+import classes from './Authentication.module.css';
+
+import GoogleButton from '@/components/Authentication/GoogleButton';
 export function AuthenticationForm(props: PaperProps) {
   const router = useRouter();
   const [type, toggle] = useToggle(['login', 'register']);
@@ -37,6 +40,12 @@ export function AuthenticationForm(props: PaperProps) {
           : null,
     },
   });
+
+  const submitHandler = (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log(form.isValid());
+    if (form.isValid()) router.push('/dashboard');
+  };
 
   return (
     <Box className={classes.main}>
@@ -65,7 +74,7 @@ export function AuthenticationForm(props: PaperProps) {
           my='lg'
         />
 
-        <form onSubmit={form.onSubmit(() => {})}>
+        <form onSubmit={submitHandler}>
           <Stack>
             {type === 'register' && (
               <TextInput

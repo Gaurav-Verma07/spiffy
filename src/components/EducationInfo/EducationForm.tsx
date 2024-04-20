@@ -4,22 +4,18 @@ import {
   Fieldset,
   Group,
   NumberInput,
-  TextInput,
   Textarea,
+  TextInput,
 } from '@mantine/core';
 import { MonthPickerInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
-import {
-  IconCheck,
-  IconCircleCheck,
-  IconCircleMinus,
-  IconCirclePlus,
-} from '@tabler/icons-react';
+import { IconCircleMinus, IconCirclePlus } from '@tabler/icons-react';
+import { SyntheticEvent, useState } from 'react';
+
 import {
   EducationInterface,
   initialData,
-} from 'components/EducationInfo/EducationInfo';
-import { SyntheticEvent, useState } from 'react';
+} from '@/components/EducationInfo/EducationInfo';
 
 const EducationForm = ({
   current,

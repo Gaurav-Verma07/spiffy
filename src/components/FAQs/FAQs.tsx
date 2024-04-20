@@ -1,4 +1,5 @@
-import { Container, Title, Accordion, Box } from '@mantine/core';
+import { Accordion, Box, Container, Title } from '@mantine/core';
+
 import classes from './FAQs.module.css';
 
 const placeholder =
@@ -46,8 +47,12 @@ const FAQs = () => {
       </Box>
       <Box className={classes.accordion}>
         <Accordion variant='separated'>
-          {data.map((el, index) => (
-            <Accordion.Item className={classes.item} value={`${el.value}`}>
+          {data.map((el, index: number) => (
+            <Accordion.Item
+              key={index}
+              className={classes.item}
+              value={`${el.value}`}
+            >
               <Accordion.Control>{el.question}</Accordion.Control>
               <Accordion.Panel>{el.answer}</Accordion.Panel>
             </Accordion.Item>

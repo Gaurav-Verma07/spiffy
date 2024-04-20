@@ -1,12 +1,15 @@
 import { createTheme, MantineProvider } from '@mantine/core';
-import HeroHeader from 'components/HeroHeader/HeroHeader';
-import { siteConfig } from 'constant/config';
 import { Metadata } from 'next';
 import * as React from 'react';
 
 import '@mantine/core/styles.css';
-import 'styles/globals.css';
+import '@/styles/globals.css';
 import '@mantine/tiptap/styles.css';
+
+import HeroHeader from '@/components/HeroHeader/HeroHeader';
+
+import Providers from '@/app/Providers';
+import { siteConfig } from '@/constant/config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -45,12 +48,14 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <MantineProvider theme={theme}>
-        <body>
-          <HeroHeader />
-          {children}
-        </body>
-      </MantineProvider>
+      <Providers>
+        <MantineProvider theme={theme}>
+          <body>
+            <HeroHeader />
+            {children}
+          </body>
+        </MantineProvider>
+      </Providers>
     </html>
   );
 }

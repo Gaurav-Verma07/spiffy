@@ -4,7 +4,7 @@ const nextConfig = {
     dirs: ['src', 'components', 'styles', 'constant', 'lib'],
   },
 
-  reactStrictMode: true,
+  // reactStrictMode: true,
   swcMinify: true,
 
   // Uncoment to add domain whitelist

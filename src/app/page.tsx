@@ -1,13 +1,11 @@
 'use client';
-
 import { ColorSchemeScript } from '@mantine/core';
-import FAQs from 'components/FAQs/FAQs';
-import Herobox from 'components/Herobox/Herobox';
-import HeroHeader from 'components/HeroHeader/HeroHeader';
-import WhyUs from 'components/WhyUs/WhyUs';
 import Head from 'next/head';
-import { useRouter } from 'next/navigation';
 import * as React from 'react';
+
+import FAQs from '@/components/FAQs/FAQs';
+import Herobox from '@/components/Herobox/Herobox';
+import WhyUs from '@/components/WhyUs/WhyUs';
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -21,7 +19,6 @@ import * as React from 'react';
 // to customize the default configuration.
 
 const HomePage = () => {
-  const router = useRouter();
   return (
     <main>
       <Head>

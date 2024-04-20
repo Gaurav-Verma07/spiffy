@@ -1,9 +1,10 @@
 import { Box, Text, Title } from '@mantine/core';
-import ats from 'public/images/ats.png';
+import Image from 'next/image';
 import aifriendly from 'public/images/aifriendly.png';
+import ats from 'public/images/ats.png';
 import customize from 'public/images/customize.png';
 import easytouse from 'public/images/easytouse.png';
-import Image from 'next/image';
+
 import classes from './WhyUs.module.css';
 
 const data = [
@@ -36,8 +37,8 @@ const data = [
 const WhyUs = () => {
   return (
     <Box>
-      {data.map((_el, index) => (
-        <Box className={classes.box}>
+      {data.map((_el, index: number) => (
+        <Box key={index} className={classes.box}>
           <div className='left' style={{ order: index % 2 == 0 ? 1 : 0 }}>
             {' '}
             <Image src={_el.img} alt='image' width={500} height={500} />

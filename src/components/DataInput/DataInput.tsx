@@ -5,18 +5,19 @@ import {
   IconKey,
   IconReceipt2,
 } from '@tabler/icons-react';
-import BasicInfo from 'components/BasicInfo/BasicInfo';
-import EducationInfo from 'components/EducationInfo/EducationInfo';
-import ExperienceInfo from 'components/ExperienceInfo/ExperienceInfo';
-import ProjectsInfo from 'components/ProjectsInfo/ProjectsInfo';
-import SkillsInfo from 'components/SkillsInfo/SkillsInfo';
-import SummaryInfo from 'components/SummaryInfo/SummaryInfo';
 import { useState } from 'react';
 
 import classes from './DataInput.module.css';
 
+import EducationInfo from '@/components/EducationInfo/EducationInfo';
+import ExperienceInfo from '@/components/ExperienceInfo/ExperienceInfo';
+import PersonalInfo from '@/components/PersonalInfo/PersonalInfo';
+import ProjectsInfo from '@/components/ProjectsInfo/ProjectsInfo';
+import SkillsInfo from '@/components/SkillsInfo/SkillsInfo';
+import SummaryInfo from '@/components/SummaryInfo/SummaryInfo';
+
 const data = [
-  { index: 0, label: 'Basic Info', icon: IconBellRinging },
+  { index: 0, label: 'Personal Info', icon: IconBellRinging },
   { index: 1, label: 'Summary', icon: IconBellRinging },
   { index: 2, label: 'Education', icon: IconReceipt2 },
   { index: 3, label: 'Experiences', icon: IconReceipt2 },
@@ -43,36 +44,21 @@ const DataInput = () => {
     </a>
   ));
 
-  const prevHandler = () => {
-    if (active !== 0) {
-      setActive(active - 1);
-    }
-  };
-
-  const nextHandler = () => {
-    if (active !== 5) {
-      setActive(active + 1);
-    }
-  };
-
   return (
     <Box className={classes.container}>
-      <div className={classes.fields}>{links}</div>
+      <div className={classes.fields}>
+        {links}
+        <Button style={{ width: '100%' }}>Submit</Button>
+      </div>
       <Box w={600} pt={20} className={classes.mainBox}>
-        {active === 0 && <BasicInfo />}
+        {active === 0 && <PersonalInfo />}
         {active === 1 && <SummaryInfo />}
         {active === 2 && <EducationInfo />}
         {active === 3 && <ExperienceInfo />}
         {active === 4 && <ProjectsInfo />}
         {active === 5 && <SkillsInfo />} {/* <RichEditor /> */}
         <Group pt={15} grow>
-          <Button disabled={active === 0} onClick={prevHandler}>
-            Previous
-          </Button>
           <Button>Save</Button>
-          <Button disabled={active === 5} onClick={nextHandler}>
-            Next
-          </Button>
         </Group>
       </Box>
     </Box>
