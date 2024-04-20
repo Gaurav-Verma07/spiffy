@@ -1,12 +1,10 @@
-import { createTheme, MantineProvider } from '@mantine/core';
+import { ColorSchemeScript, createTheme, MantineProvider } from '@mantine/core';
 import { Metadata } from 'next';
 import * as React from 'react';
 
 import '@mantine/core/styles.css';
 import '@/styles/globals.css';
 import '@mantine/tiptap/styles.css';
-
-import HeroHeader from '@/components/HeroHeader/HeroHeader';
 
 import Providers from '@/app/Providers';
 import { siteConfig } from '@/constant/config';
@@ -48,13 +46,13 @@ export default function RootLayout({
 }) {
   return (
     <html>
+      <head>
+        <ColorSchemeScript />
+      </head>
       <Providers>
-        <MantineProvider theme={theme}>
-          <body>
-            <HeroHeader />
-            {children}
-          </body>
-        </MantineProvider>
+        <body>
+          <MantineProvider theme={theme}>{children}</MantineProvider>
+        </body>
       </Providers>
     </html>
   );
