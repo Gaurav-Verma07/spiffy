@@ -12,16 +12,7 @@ import { useForm } from '@mantine/form';
 import { IconCircleMinus, IconCirclePlus } from '@tabler/icons-react';
 import { SyntheticEvent } from 'react';
 
-export interface EducationInterface {
-  educationId: number;
-  school: string;
-  degree: string;
-  fieldOfStudy: string;
-  startDate: string;
-  endDate: string;
-  cgpa: number;
-  description: string;
-}
+import { EducationInterface } from '@/lib/utils/interfaces';
 
 export const initialData: EducationInterface = {
   educationId: Date.now(),
@@ -41,7 +32,6 @@ const EducationInfo = () => {
   });
 
   const addHandler = (index: number) => {
-    const educationId = Date.now();
     console.log(initialData);
     form.insertListItem(
       'educationFormData',

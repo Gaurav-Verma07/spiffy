@@ -103,7 +103,12 @@ const HeroHeader = () => {
     >
       <header className={classes.header}>
         <Group justify='space-between' h='100%'>
-          <IconBook size={30} />
+          <IconBook
+            onClick={() => {
+              router.push('/');
+            }}
+            size={30}
+          />
 
           <Group h='100%' gap={0} visibleFrom='sm'>
             <a href='#' className={classes.link}>

@@ -1,4 +1,4 @@
-import { Box, Button, Fieldset, Input, Text, TextInput } from '@mantine/core';
+import { Box, Button, Fieldset, Group, Input, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import Image from 'next/image';
 import { SyntheticEvent, useEffect, useRef } from 'react';
@@ -26,7 +26,6 @@ const initialValues: PersonalInfoInterface = {
 const PersonalInfo = () => {
   const dispatch = useDispatch();
   const newRef = useRef<any>(null);
-
   const form = useForm({
     initialValues,
     validate: {
@@ -86,79 +85,84 @@ const PersonalInfo = () => {
 
   return (
     <Box ref={newRef}>
-      <Text py={20}>Personal Info</Text>
       <form onSubmit={saveHandler}>
-        <Fieldset mb={20} legend='Personal information'>
-          <TextInput
-            required
-            label='Your name'
-            {...form.getInputProps('name')}
-            placeholder='Your name'
-          />
-          <TextInput
-            required
-            label='Email'
-            {...form.getInputProps('email')}
-            placeholder='Email'
-            mt='md'
-          />
-          <TextInput
-            label='Phone Number'
-            type='number'
-            {...form.getInputProps('number')}
-            placeholder='+911'
-            mt='md'
-          />
-          <TextInput
-            label='Country of Origin'
-            {...form.getInputProps('country')}
-            placeholder='Country'
-            mt='md'
-          />
-        </Fieldset>
-        <Fieldset legend='Social links'>
-          <Input
-            my={20}
-            height={30}
-            {...form.getInputProps('linkedin')}
-            placeholder='Linkedin'
-            leftSection={
-              // <IconBrandLinkedin color='#00abfb' />
-              <Image src={Linkedin} alt='linkedin' width={20} height={20} />
-            }
-          />
-          <Input
-            my={20}
-            height={30}
-            placeholder='Github'
-            {...form.getInputProps('github')}
-            leftSection={
-              // <IconBrandLinkedin color='#00abfb' />
-              <Image src={Github} alt='Github' width={20} height={20} />
-            }
-          />
-          <Input
-            my={20}
-            height={30}
-            {...form.getInputProps('twitter')}
-            placeholder='Twitter'
-            leftSection={
-              // <IconBrandLinkedin color='#00abfb' />
-              <Image src={Twitter} alt='Twitter' width={20} height={20} />
-            }
-          />
-          <Input
-            my={20}
-            height={30}
-            placeholder='Portfolio'
-            {...form.getInputProps('portfolio')}
-            leftSection={
-              // <IconBrandLinkedin color='#00abfb' />
-              <Image src={Portfolio} alt='Portfolio' width={20} height={20} />
-            }
-          />
-        </Fieldset>
-        <Button type='submit'>Submit</Button>
+        <Group grow gap='xl'>
+          <Fieldset
+            // style={{ alignSelf: 'stretch' }}
+            mb={20}
+            legend='Personal information'
+          >
+            <TextInput
+              required
+              label='Your name'
+              {...form.getInputProps('name')}
+              placeholder='Your name'
+            />
+            <TextInput
+              required
+              label='Email'
+              {...form.getInputProps('email')}
+              placeholder='Email'
+              mt='md'
+            />
+            <TextInput
+              label='Phone Number'
+              type='number'
+              {...form.getInputProps('number')}
+              placeholder='+911'
+              mt='md'
+            />
+            <TextInput
+              label='Country of Origin'
+              {...form.getInputProps('country')}
+              placeholder='Country'
+              mt='md'
+            />
+          </Fieldset>
+          <Fieldset legend='Social links'>
+            <Input
+              my={20}
+              height={30}
+              {...form.getInputProps('linkedin')}
+              placeholder='Linkedin'
+              leftSection={
+                // <IconBrandLinkedin color='#00abfb' />
+                <Image src={Linkedin} alt='linkedin' width={20} height={20} />
+              }
+            />
+            <Input
+              my={20}
+              height={30}
+              placeholder='Github'
+              {...form.getInputProps('github')}
+              leftSection={
+                // <IconBrandLinkedin color='#00abfb' />
+                <Image src={Github} alt='Github' width={20} height={20} />
+              }
+            />
+            <Input
+              my={20}
+              height={30}
+              {...form.getInputProps('twitter')}
+              placeholder='Twitter'
+              leftSection={
+                // <IconBrandLinkedin color='#00abfb' />
+                <Image src={Twitter} alt='Twitter' width={20} height={20} />
+              }
+            />
+            <Input
+              my={20}
+              height={30}
+              placeholder='Portfolio'
+              {...form.getInputProps('portfolio')}
+              leftSection={
+                // <IconBrandLinkedin color='#00abfb' />
+                <Image src={Portfolio} alt='Portfolio' width={20} height={20} />
+              }
+            />
+          </Fieldset>
+        </Group>
+        <Button type='submit'>Save</Button>
       </form>
     </Box>
   );
