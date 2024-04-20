@@ -3,7 +3,6 @@ import { useDisclosure } from '@mantine/hooks';
 
 import DashboardNavbar from '@/components/DashboardNavbar/DashboardNavbar';
 import DataInput from '@/components/DataInput/DataInput';
-import HeroHeader from '@/components/HeroHeader/HeroHeader';
 
 const Dashboard = () => {
   const [opened, { toggle }] = useDisclosure();
@@ -18,9 +17,9 @@ const Dashboard = () => {
       }}
       padding='md'
     >
-      <AppShell.Header>
+      {/* <AppShell.Header>
         <HeroHeader />
-      </AppShell.Header>
+      </AppShell.Header> */}
       <AppShell.Navbar>
         <DashboardNavbar />
       </AppShell.Navbar>

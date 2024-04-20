@@ -1,7 +1,6 @@
 'use client';
 import {
   Anchor,
-  Box,
   Button,
   Checkbox,
   Divider,
@@ -21,9 +20,10 @@ import { SyntheticEvent } from 'react';
 import classes from './Authentication.module.css';
 
 import GoogleButton from '@/components/Authentication/GoogleButton';
-export function AuthenticationForm(props: PaperProps) {
-  const router = useRouter();
+
+const Authentication = (props: PaperProps) => {
   const [type, toggle] = useToggle(['login', 'register']);
+  const router = useRouter();
   const form = useForm({
     initialValues: {
       email: '',
@@ -43,107 +43,104 @@ export function AuthenticationForm(props: PaperProps) {
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(form.isValid());
-    if (form.isValid()) router.push('/dashboard');
+    if (form.isValid()) {
+      console.log('submitterd');
+      router.push('/dashboard');
+    }
   };
 
   return (
-    <Box className={classes.main}>
-      <Button
-        onClick={() => {
-          router.push('/');
-        }}
-        my={20}
-      >
-        {' '}
-        Back
-      </Button>
-      <Paper radius='md' p='xl' withBorder {...props}>
-        <Text size='lg' fw={500}>
-          Welcome to Mantine, {type} with
-        </Text>
+    <div className={classes.wrapper}>
+      <Paper className={classes.form} radius={0} p={30}>
+        <Paper radius='md' p='xl' {...props}>
+          <Text size='lg' fw={500}>
+            Welcome to Mantine, {type} with
+          </Text>
 
-        <Group grow mb='md' mt='md'>
-          <GoogleButton radius='xl'>Google</GoogleButton>
-          {/* <TwitterButton radius='xl'>Twitter</TwitterButton> */}
-        </Group>
+          <Group grow mb='md' mt='md'>
+            <GoogleButton radius='xl'>Google</GoogleButton>
+            {/* <TwitterButton radius="xl">Twitter</TwitterButton> */}
+          </Group>
 
-        <Divider
-          label='Or continue with email'
-          labelPosition='center'
-          my='lg'
-        />
+          <Divider
+            label='Or continue with email'
+            labelPosition='center'
+            my='lg'
+          />
 
-        <form onSubmit={submitHandler}>
-          <Stack>
-            {type === 'register' && (
+          <form onSubmit={submitHandler}>
+            <Stack>
+              {/* {type === 'register' && (
+                <TextInput
+                  label='Name'
+                  placeholder='Your name'
+                  value={form.values.name}
+                  onChange={(event) =>
+                    form.setFieldValue('name', event.currentTarget.value)
+                  }
+                  radius='md'
+                />
+              )} */}
+
               <TextInput
-                label='Name'
-                placeholder='Your name'
-                value={form.values.name}
+                required
+                label='Email'
+                placeholder='hello@mantine.dev'
+                value={form.values.email}
                 onChange={(event) =>
-                  form.setFieldValue('name', event.currentTarget.value)
+                  form.setFieldValue('email', event.currentTarget.value)
+                }
+                error={form.errors.email && 'Invalid email'}
+                radius='md'
+              />
+
+              <PasswordInput
+                required
+                label='Password'
+                placeholder='Your password'
+                value={form.values.password}
+                onChange={(event) =>
+                  form.setFieldValue('password', event.currentTarget.value)
+                }
+                error={
+                  form.errors.password &&
+                  'Password should include at least 6 characters'
                 }
                 radius='md'
               />
-            )}
 
-            <TextInput
-              required
-              label='Email'
-              placeholder='hello@mantine.dev'
-              value={form.values.email}
-              onChange={(event) =>
-                form.setFieldValue('email', event.currentTarget.value)
-              }
-              error={form.errors.email && 'Invalid email'}
-              radius='md'
-            />
+              {type === 'register' && (
+                <Checkbox
+                  label='I accept terms and conditions'
+                  checked={form.values.terms}
+                  onChange={(event) =>
+                    form.setFieldValue('terms', event.currentTarget.checked)
+                  }
+                />
+              )}
+            </Stack>
 
-            <PasswordInput
-              required
-              label='Password'
-              placeholder='Your password'
-              value={form.values.password}
-              onChange={(event) =>
-                form.setFieldValue('password', event.currentTarget.value)
-              }
-              error={
-                form.errors.password &&
-                'Password should include at least 6 characters'
-              }
-              radius='md'
-            />
-
-            {type === 'register' && (
-              <Checkbox
-                label='I accept terms and conditions'
-                checked={form.values.terms}
-                onChange={(event) =>
-                  form.setFieldValue('terms', event.currentTarget.checked)
-                }
-              />
-            )}
-          </Stack>
-
-          <Group justify='space-between' mt='xl'>
-            <Anchor
-              component='button'
-              type='button'
-              c='dimmed'
-              onClick={() => toggle()}
-              size='xs'
-            >
-              {type === 'register'
-                ? 'Already have an account? Login'
-                : "Don't have an account? Register"}
-            </Anchor>
-            <Button type='submit' radius='xl'>
-              {upperFirst(type)}
-            </Button>
-          </Group>
-        </form>
+            <Group justify='space-between' mt='xl'>
+              <Anchor
+                component='button'
+                type='button'
+                c='dimmed'
+                onClick={() => toggle()}
+                size='xs'
+              >
+                {type === 'register'
+                  ? 'Already have an account? Login'
+                  : "Don't have an account? Register"}
+              </Anchor>
+              <Button type='submit' radius='xl'>
+                {upperFirst(type)}
+              </Button>
+            </Group>
+          </form>
+        </Paper>{' '}
       </Paper>
-    </Box>
+    </div>
   );
-}
+};
+
+export default Authentication;
