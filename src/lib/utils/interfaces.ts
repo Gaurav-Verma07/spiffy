@@ -23,3 +23,25 @@ export interface EducationInterface {
   cgpa?: number;
   description?: string;
 }
+
+export interface ExperienceInterface {
+  experienceId: number;
+  title: string;
+  employmentType: string;
+  companyName: string;
+  locationName: string;
+  startDate: string | null;
+  endDate: string | null;
+  isCurrentWoring?: boolean;
+  description?: string;
+}
+
+export interface ProjectsInterface {
+  projectId: number;
+  title: string;
+  link?: string;
+  startDate?: string | null;
+  endDate?: string | null;
+  isCurrentWoring?: boolean;
+  description: string;
+}

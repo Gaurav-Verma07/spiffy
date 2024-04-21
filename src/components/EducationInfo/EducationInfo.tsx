@@ -38,11 +38,13 @@ const EducationInfo = () => {
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
+    const educationId = Date.now();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
     dispatch(
       addEducationInfo({
         ...form.values,
+        educationId: educationId,
         startDate: startD,
         endDate: endD,
       })
