@@ -5,20 +5,20 @@ import { PersonalInfoInterface } from '@/lib/utils/interfaces';
 const initialState: PersonalInfoInterface = {
   name: '',
   email: '',
-  number: '',
-  country: '',
-  linkedin: '',
-  github: '',
-  twitter: '',
-  portfolio: '',
+  number: null,
+  country: null,
+  linkedin: null,
+  github: null,
+  twitter: null,
+  portfolio: null,
 };
 export const personalInfoSlice = createSlice({
-  name: 'resumeData',
-  initialState: { initialState },
+  name: 'personalInfo',
+  initialState: {},
   reducers: {
     addPersonalInfo: (state: any, action: { payload: any; type: string }) => {
-      console.log(action.payload);
-      return state;
+      // console.log(action.payload);
+      return { ...state, ...action.payload };
     },
   },
 });

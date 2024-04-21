@@ -5,6 +5,7 @@ import { SyntheticEvent, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addPersonalInfo } from '@/lib/store/resumeDataSlice/personalInfoSlice';
+import store from '@/lib/store/store';
 import { PersonalInfoInterface } from '@/lib/utils/interfaces';
 
 import Github from './github.png';
@@ -33,6 +34,7 @@ const PersonalInfo = () => {
       name: (val) => (val.length > 2 ? null : 'Name should be 3 letter long'),
     },
   });
+  console.log(store.getState());
   // const isChanging = useRouteChange(form.isDirty());
 
   const saveHandler = (e: SyntheticEvent) => {

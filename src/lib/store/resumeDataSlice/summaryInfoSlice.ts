@@ -6,12 +6,12 @@ const initialState: SummaryInfoInterface = {
   summary: '',
 };
 export const summaryInfoSlice = createSlice({
-  name: 'resumeData',
-  initialState: { initialState },
+  name: 'summaryInfo',
+  initialState: {},
   reducers: {
     addSummaryInfo: (state: any, action: { payload: any; type: string }) => {
       console.log(action.payload);
-      return state;
+      return { ...state, ...action.payload };
     },
   },
 });

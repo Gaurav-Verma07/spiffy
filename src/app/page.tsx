@@ -3,8 +3,6 @@ import { ColorSchemeScript } from '@mantine/core';
 import Head from 'next/head';
 import * as React from 'react';
 
-import store from '@/lib/store/store';
-
 import FAQs from '@/components/FAQs/FAQs';
 import Herobox from '@/components/Herobox/Herobox';
 import HeroHeader from '@/components/HeroHeader/HeroHeader';
@@ -22,8 +20,6 @@ import WhyUs from '@/components/WhyUs/WhyUs';
 // to customize the default configuration.
 
 const HomePage = () => {
-  console.log(store.getState());
-
   return (
     <main>
       <Head>
