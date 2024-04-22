@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
+import { Center, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
 import {
-  IconHome2,
-  IconGauge,
+  Icon360,
+  IconCalendarStats,
   IconDeviceDesktopAnalytics,
   IconFingerprint,
-  IconCalendarStats,
-  IconUser,
-  IconSettings,
+  IconGauge,
+  IconHome2,
   IconLogout,
+  IconSettings,
   IconSwitchHorizontal,
-  Icon360,
+  IconUser,
 } from '@tabler/icons-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
 import classes from './DashboardNavbar.module.css';
 
 interface NavbarLinkProps {
@@ -36,24 +38,27 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 }
 
 const mockdata = [
-  { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-  { icon: IconCalendarStats, label: 'Releases' },
-  { icon: IconUser, label: 'Account' },
-  { icon: IconFingerprint, label: 'Security' },
-  { icon: IconSettings, label: 'Settings' },
+  { icon: IconGauge, label: 'Dashboard', link: '/dashboard' },
+  { icon: IconHome2, label: 'Home', link: '/home' },
+  { icon: IconDeviceDesktopAnalytics, label: 'Analytics', link: '' },
+  { icon: IconCalendarStats, label: 'Releases', link: '' },
+  { icon: IconUser, label: 'Account', link: '' },
+  { icon: IconFingerprint, label: 'Security', link: '' },
+  { icon: IconSettings, label: 'Settings', link: '' },
 ];
 
 const DashboardNavbar = () => {
-  const [active, setActive] = useState(2);
-
+  const [active, setActive] = useState(0);
+  const router = useRouter();
   const links = mockdata.map((link, index) => (
     <NavbarLink
       {...link}
       key={link.label}
       active={index === active}
-      onClick={() => setActive(index)}
+      onClick={() => {
+        setActive(index);
+        router.push(link.link);
+      }}
     />
   ));
 

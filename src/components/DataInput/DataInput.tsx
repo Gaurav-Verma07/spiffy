@@ -63,12 +63,9 @@ const DataInput = () => {
               <Chip
                 icon={<IconPoint />}
                 className={classes.link}
-                // data-active={item.index === active || undefined}
-                // href={item.link}
                 value={item.label}
                 key={item.index}
               >
-                {/* <item.icon className={classes.linkIcon} stroke={1.5} /> */}
                 <span>{item.label}</span>
               </Chip>
             ))}
@@ -77,13 +74,6 @@ const DataInput = () => {
         </Chip.Group>
       </div>
       <Box w={600} pt={20} className={classes.mainBox}>
-        {/* {active === 0 && <PersonalInfo />}
-        {active === 1 && <SummaryInfo />}
-        {active === 2 && <EducationInfo />}
-        {active === 3 && <ExperienceInfo />}
-        {active === 4 && <ProjectsInfo />}
-        {active === 5 && <SkillsInfo />} */}
-        {/* <RichEditor /> */}
         {
           data.filter((item) => item.label === active && item.component)[0]
             .component

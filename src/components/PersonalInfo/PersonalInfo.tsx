@@ -5,7 +5,6 @@ import { SyntheticEvent, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addPersonalInfo } from '@/lib/store/resumeDataSlice/personalInfoSlice';
-import store from '@/lib/store/store';
 import { PersonalInfoInterface } from '@/lib/utils/interfaces';
 
 import Github from './github.png';
@@ -34,8 +33,6 @@ const PersonalInfo = () => {
       name: (val) => (val.length > 2 ? null : 'Name should be 3 letter long'),
     },
   });
-  console.log(store.getState());
-  // const isChanging = useRouteChange(form.isDirty());
 
   const saveHandler = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -48,22 +45,6 @@ const PersonalInfo = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const handleRouteChange = (url: string) => {
-  //     if (form.isDirty()) {
-  //       router.events.emit('routeChangeError');
-  //       console.log('route change detected');
-  //       router.replace(router.asPath, undefined, { shallow: true });
-  //     }
-  //   };
-
-  //   router.events.on('routeChangeStart', handleRouteChange);
-
-  //   return () => {
-  //     router.events.off('routeChangeStart', handleRouteChange);
-  //   };
-  // }, []);
-
   useEffect(() => {
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
@@ -71,16 +52,13 @@ const PersonalInfo = () => {
     };
   });
 
-  console.log(form.isDirty());
-
   const handleOutsideClick = (e: any) => {
-    // console.log('outside');
     if (newRef.current && !newRef.current.contains(e.target as Node)) {
       if (
         e.target instanceof HTMLButtonElement ||
         e.target instanceof HTMLAnchorElement
       ) {
-        console.log('clicked  a button');
+        console.log('outside');
       }
     }
   };
@@ -88,10 +66,10 @@ const PersonalInfo = () => {
   return (
     <Box ref={newRef}>
       <form onSubmit={saveHandler}>
-        <Group grow gap='xl'>
+        <Group grow gap='xl' align='top'>
           <Fieldset
             // style={{ alignSelf: 'stretch' }}
-            mb={20}
+            // mb={20}
             legend='Personal information'
           >
             <TextInput

@@ -45,3 +45,5 @@ export interface ProjectsInterface {
   isCurrentWoring?: boolean;
   description: string;
 }
+
+export type SkillsInterface = string[];
