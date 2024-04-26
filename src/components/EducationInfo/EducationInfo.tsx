@@ -19,7 +19,7 @@ import { addEducationInfo } from '@/lib/store/resumeDataSlice/educationInfoSlice
 import { EducationInterface } from '@/lib/utils/interfaces';
 
 export const initialData: EducationInterface = {
-  educationId: Date.now(),
+  uid: Date.now(),
   school: '',
   degree: '',
   fieldOfStudy: '',
@@ -38,13 +38,13 @@ const EducationInfo = () => {
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    const educationId = Date.now();
+    const uid = Date.now();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
     dispatch(
       addEducationInfo({
         ...form.values,
-        educationId: educationId,
+        uid: uid,
         startDate: startD,
         endDate: endD,
       })

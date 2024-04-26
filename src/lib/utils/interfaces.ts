@@ -14,7 +14,7 @@ export interface SummaryInfoInterface {
 }
 
 export interface EducationInterface {
-  educationId: number;
+  uid: number;
   school: string;
   degree?: string;
   fieldOfStudy?: string;
@@ -25,7 +25,7 @@ export interface EducationInterface {
 }
 
 export interface ExperienceInterface {
-  experienceId: number;
+  uid: number;
   title: string;
   employmentType: string;
   companyName: string;
@@ -37,7 +37,7 @@ export interface ExperienceInterface {
 }
 
 export interface ProjectsInterface {
-  projectId: number;
+  uid: number;
   title: string;
   link?: string;
   startDate?: string | null;

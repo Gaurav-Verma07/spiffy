@@ -18,7 +18,7 @@ import { addExperienceInfo } from '@/lib/store/resumeDataSlice/experienceInfoSli
 import { ExperienceInterface } from '@/lib/utils/interfaces';
 
 export const initialData: ExperienceInterface = {
-  experienceId: 0,
+  uid: 0,
   title: '',
   employmentType: '',
   companyName: '',
@@ -40,11 +40,11 @@ const ExperienceInfo = () => {
     e.preventDefault();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
-    const experienceId = new Date().getTime();
+    const uid = new Date().getTime();
     dispatch(
       addExperienceInfo({
         ...form.values,
-        experienceId: experienceId,
+        uid: uid,
         startDate: startD ? startD : null,
         endDate: endD ? endD : null,
       })
