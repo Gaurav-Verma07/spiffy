@@ -52,7 +52,7 @@ const ExperienceInfo = () => {
   };
 
   return (
-    <Box>
+    <Box flex={1}>
       <Text pb={20}>Your Experiences</Text>
       <form onSubmit={submitHandler}>
         <Box style={{ position: 'relative' }}>

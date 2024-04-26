@@ -1,3 +1,4 @@
+'use client';
 import { Center, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
 import {
   Icon360,
@@ -8,7 +9,6 @@ import {
   IconHome2,
   IconLogout,
   IconSettings,
-  IconSwitchHorizontal,
   IconUser,
 } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
@@ -38,8 +38,8 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 }
 
 const mockdata = [
-  { icon: IconGauge, label: 'Dashboard', link: '/dashboard' },
-  { icon: IconHome2, label: 'Home', link: '/home' },
+  { icon: IconGauge, label: 'Dashboard', link: '/home' },
+  { icon: IconHome2, label: 'Input', link: '/home/input?type=personal' },
   { icon: IconDeviceDesktopAnalytics, label: 'Analytics', link: '' },
   { icon: IconCalendarStats, label: 'Releases', link: '' },
   { icon: IconUser, label: 'Account', link: '' },
@@ -75,7 +75,11 @@ const DashboardNavbar = () => {
       </div>
 
       <Stack justify='center' gap={0}>
-        <NavbarLink icon={IconSwitchHorizontal} label='Change account' />
+        <NavbarLink
+          icon={IconUser}
+          label='Change account'
+          onClick={() => router.push('/home/profile')}
+        />
         <NavbarLink icon={IconLogout} label='Logout' />
       </Stack>
     </nav>

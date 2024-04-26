@@ -107,7 +107,7 @@ const SkillsInfo = () => {
   };
 
   return (
-    <Box>
+    <Box flex={1}>
       <Text pb={10}>Skills</Text>
       <Fieldset style={{ margin: '20px 0' }} legend='Skills'>
         <TagsInput

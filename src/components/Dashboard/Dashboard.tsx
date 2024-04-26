@@ -1,10 +1,10 @@
+'use client';
 import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 import DashboardNavbar from '@/components/DashboardNavbar/DashboardNavbar';
-import DataInput from '@/components/DataInput/DataInput';
 
-const Dashboard = () => {
+const Dashboard = ({ children }: { children: React.ReactNode }) => {
   const [opened, { toggle }] = useDisclosure();
 
   return (
@@ -24,7 +24,8 @@ const Dashboard = () => {
         <DashboardNavbar />
       </AppShell.Navbar>
       <AppShell.Main pt={20}>
-        <DataInput />
+        {/* <DataInput /> */}
+        {children}
       </AppShell.Main>
     </AppShell>
   );

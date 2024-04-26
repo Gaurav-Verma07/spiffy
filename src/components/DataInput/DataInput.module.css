@@ -1,5 +1,5 @@
 .container {
-  padding-top: rem(20px);
+  padding: rem(20px);
 }
 
 .fields {
@@ -8,6 +8,7 @@
 .mainBox {
   margin: 0 auto;
   width: 100% !important;
+  display: flex;
 }
 
 .header {

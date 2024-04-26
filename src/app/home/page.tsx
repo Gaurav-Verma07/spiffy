@@ -1,9 +1,8 @@
 'use client';
 
+import { Text } from '@mantine/core';
 import React from 'react';
 
-import Dashboard from '@/components/Dashboard/Dashboard';
-
 export default function PrivacyPolicyPage() {
-  return <Dashboard />;
+  return <Text>Dashboard</Text>;
 }

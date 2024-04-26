@@ -52,7 +52,7 @@ const EducationInfo = () => {
   };
 
   return (
-    <Box>
+    <Box flex={1}>
       <Text pb={20}>Educational information</Text>
       <form onSubmit={submitHandler}>
         <Fieldset mb={20}>

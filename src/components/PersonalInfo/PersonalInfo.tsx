@@ -64,11 +64,11 @@ const PersonalInfo = () => {
   };
 
   return (
-    <Box ref={newRef}>
+    <Box ref={newRef} flex={1}>
       <form onSubmit={saveHandler}>
         <Group grow gap='xl' align='top'>
           <Fieldset
-            // style={{ alignSelf: 'stretch' }}
+            style={{ alignSelf: 'stretch' }}
             // mb={20}
             legend='Personal information'
           >
@@ -99,7 +99,7 @@ const PersonalInfo = () => {
               mt='md'
             />
           </Fieldset>
-          <Fieldset legend='Social links'>
+          <Fieldset legend='Social links' style={{ alignSelf: 'stretch' }}>
             <Input
               my={20}
               height={30}

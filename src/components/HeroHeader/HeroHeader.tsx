@@ -96,7 +96,7 @@ const HeroHeader = () => {
   return (
     <Box
       style={{
-        position: pathname === '/dashboard' ? 'fixed' : 'relative',
+        position: pathname === '/input' ? 'fixed' : 'relative',
         width: '100%',
         background: '#fff',
       }}

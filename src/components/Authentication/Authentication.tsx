@@ -45,7 +45,7 @@ const Authentication = (props: PaperProps) => {
     e.preventDefault();
     if (form.isValid()) {
       console.log('submitterd');
-      router.push('/dashboard');
+      router.push('/home');
     }
   };
 

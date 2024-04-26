@@ -51,7 +51,7 @@ const ProjectsInfo = () => {
   };
 
   return (
-    <Box>
+    <Box flex={1}>
       <Text pb={20}>Projects</Text>
       <form onSubmit={submitHandler}>
         <Box style={{ position: 'relative' }}>
