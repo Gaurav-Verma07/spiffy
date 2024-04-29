@@ -1,15 +1,68 @@
-/**
- * Copyright 2024 gauravverma
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *     https://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+.main {
+  width: 600px;
+  transform: rotate(-10deg);
+}
+
+.fieldset {
+  /* border: none; */
+}
+
+.fancy {
+  --offset: 3px;
+  /* background: rgb(55, 21, 90); */
+  /* border-radius: 50px; */
+  position: relative;
+  /* height: 75px;
+  width: 400px; */
+  /* max-width: 100%; */
+  overflow: hidden;
+}
+
+/* Conic gradient */
+.fancy::before {
+  content: '';
+  background: conic-gradient(
+    transparent 180deg,
+    #ec4899 180deg,
+    #ef4444,
+    transparent
+  );
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1;
+  width: 100%;
+  animation: rotate 2s linear infinite;
+}
+
+/* Overlay */
+.fancy::after {
+  content: '';
+  background: inherit;
+  border-radius: inherit;
+  position: absolute;
+  inset: var(--offset);
+  height: calc(100% - 2 * var(--offset));
+  width: calc(100% - 2 * var(--offset));
+}
+
+.fancy input {
+  background: transparent;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  padding: 1.5rem;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+  }
+}

@@ -37,7 +37,9 @@ export const metadata: Metadata = {
   },
 };
 
-const theme = createTheme({});
+const theme = createTheme({
+  fontFamily: 'Lato, sans-serif',
+});
 
 export default function RootLayout({
   children,

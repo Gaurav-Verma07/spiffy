@@ -8,6 +8,7 @@ import store from '@/lib/store/store';
 import FAQs from '@/components/FAQs/FAQs';
 import Herobox from '@/components/Herobox/Herobox';
 import HeroHeader from '@/components/HeroHeader/HeroHeader';
+import WaitingList from '@/components/WaitingList/WaitingList';
 import WhyUs from '@/components/WhyUs/WhyUs';
 /**
  * SVGR Support
@@ -32,7 +33,7 @@ const HomePage = () => {
       </Head>
       <section className='bg-white'>
         <HeroHeader />
-
+        <WaitingList />
         <Herobox />
         <WhyUs />
         <FAQs />

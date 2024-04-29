@@ -1,8 +1,9 @@
 import { Box, Fieldset, Group, Text, Textarea, TextInput } from '@mantine/core';
 import { MonthPickerInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
-import { IconCircleMinus, IconCirclePlus } from '@tabler/icons-react';
 import { SyntheticEvent } from 'react';
+
+import classes from './ExperienceInfo.module.css';
 
 export interface ExperienceInterface {
   experienceId: number;
@@ -10,9 +11,9 @@ export interface ExperienceInterface {
   employmentType: string;
   companyName: string;
   locationName: string;
-  startDate: string;
+  startDate: string | null;
   currentWoring: boolean;
-  endDate: string;
+  endDate: string | null;
   description: string;
 }
 
@@ -22,8 +23,8 @@ export const initialData: ExperienceInterface = {
   employmentType: '',
   companyName: '',
   locationName: '',
-  startDate: '',
-  endDate: '',
+  startDate: null,
+  endDate: null,
   currentWoring: false,
   description: '',
 };
@@ -65,34 +66,6 @@ const ExperienceInfo = () => {
 
   const fields = form.getValues().ExperienceFormData.map((item, index) => (
     <Box style={{ position: 'relative' }} key={index}>
-      <Box
-        style={{
-          position: 'absolute',
-          right: '-50px',
-          cursor: 'pointer',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
-        <IconCirclePlus
-          stroke={1}
-          color='#777'
-          size={40}
-          onClick={() => {
-            addHandler(index);
-          }}
-        />
-        {form.values.ExperienceFormData.length !== 1 && (
-          <IconCircleMinus
-            onClick={() => {
-              removeHandler(index);
-            }}
-            stroke={1}
-            color='#777'
-            size={40}
-          />
-        )}
-      </Box>
       <Fieldset mb={20}>
         <TextInput
           required
@@ -134,7 +107,6 @@ const ExperienceInfo = () => {
           />
         </Group>
         <Textarea
-          resize='both'
           label='Description'
           key='description'
           description='Any details you want to share from this degree'
@@ -146,8 +118,8 @@ const ExperienceInfo = () => {
   ));
 
   return (
-    <Box>
-      <Text pb={20}>Your Experiences</Text>
+    <Box className={classes.main}>
+      <Text pb={10}>Your Experiences</Text>
       <form onSubmit={submitHandler}>{fields}</form>
     </Box>
   );
