@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint src --fix && pnpm format",
-    "lint:strict": "eslint .",
+    "lint:strict": "eslint --max-warnings=0 .",
     "typecheck": "tsc --noEmit --incremental false",
     "test:watch": "jest --watch",
     "test": "jest",
@@ -80,7 +80,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --max-warnings=0",
+      "eslint",
       "prettier -w"
     ],
     "**/*.{json,css,scss,md,webmanifest}": [
