@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { SkillsInterface } from '@/lib/utils/interfaces';
 const initialState: SkillsInterface = [];
 
 export const skillsInfoSlice = createSlice({
-  name: 'skillsInfo',
+  name: resumeInputType.SKILLS_INFO,
   initialState: initialState,
   reducers: {
     addSkillsInfo: (

@@ -13,8 +13,11 @@ export const summaryInfoSlice = createSlice({
       console.log(action.payload);
       return { ...state, ...action.payload };
     },
+    clearSummaryInfo: (state) => {
+      return { ...state, summary: '' };
+    },
   },
 });
 
-export const { addSummaryInfo } = summaryInfoSlice.actions;
+export const { addSummaryInfo, clearSummaryInfo } = summaryInfoSlice.actions;
 export default summaryInfoSlice.reducer;

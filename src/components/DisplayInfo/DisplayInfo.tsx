@@ -1,6 +1,8 @@
 import { Box, Paper } from '@mantine/core';
 import { IconInfoCircle } from '@tabler/icons-react';
 
+import ShowDraggableData from '@/components/DisplayInfo/ShowDraggableData.tsx';
+
 const DisplayInfo = () => {
   return (
     <Box style={{ width: '25%' }} mr={20} mt={17}>
@@ -10,6 +12,7 @@ const DisplayInfo = () => {
         overview of your qualifications and highlights why you are a strong
         candidate for the position.
       </Paper>
+      <ShowDraggableData />
     </Box>
   );
 };

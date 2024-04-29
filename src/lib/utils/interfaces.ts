@@ -15,7 +15,7 @@ export interface SummaryInfoInterface {
 
 export interface EducationInterface {
   uid: number;
-  school: string;
+  title: string;
   degree?: string;
   fieldOfStudy?: string;
   startDate?: string | null;

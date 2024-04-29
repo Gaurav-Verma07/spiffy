@@ -1,0 +1,50 @@
+.main {
+  position: 'fixed';
+  bottom: rem(50);
+  left: 50%;
+  transform: 'translateX(-50%)';
+  border: 2px dotted #000;
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.input {
+  width: 350px !important;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-color: #000;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.description {
+  color: #fff;
+}
+
+.button {
+  background-color: #333333;
+  color: #fff;
+  outline: none;
+  border: 0;
+  border-radius: 12px;
+  border-bottom-right-radius: 0;
+  margin-left: -10px;
+  position: relative;
+  z-index: 30;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

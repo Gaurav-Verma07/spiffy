@@ -27,7 +27,6 @@ const Authentication = (props: PaperProps) => {
   const form = useForm({
     initialValues: {
       email: '',
-      name: '',
       password: '',
       terms: true,
     },
@@ -44,7 +43,6 @@ const Authentication = (props: PaperProps) => {
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
     if (form.isValid()) {
-      console.log('submitterd');
       router.push('/home');
     }
   };

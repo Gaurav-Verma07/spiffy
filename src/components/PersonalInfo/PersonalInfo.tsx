@@ -42,6 +42,8 @@ const PersonalInfo = () => {
           ...form.values,
         })
       );
+    } else {
+      console.log('form is not valid');
     }
   };
 

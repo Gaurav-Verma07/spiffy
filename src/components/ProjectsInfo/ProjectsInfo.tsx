@@ -13,13 +13,15 @@ import { MonthPickerInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { IconCalendar } from '@tabler/icons-react';
 import { SyntheticEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { addProjectsInfo } from '@/lib/store/resumeDataSlice/projectsInfoSlice';
+import { RootState } from '@/lib/store/store';
 import { ProjectsInterface } from '@/lib/utils/interfaces';
 
 export const initialData: ProjectsInterface = {
-  projectId: Date.now(),
+  uid: 0,
   title: '',
   link: '',
   startDate: null,
@@ -29,6 +31,10 @@ export const initialData: ProjectsInterface = {
 };
 
 const ProjectsInfo = () => {
+  const projectsData = useSelector(
+    (state: RootState) => state[resumeInputType.PROJECTS_INFO]
+  );
+
   const form = useForm({
     mode: 'controlled',
     initialValues: initialData,
@@ -36,18 +42,19 @@ const ProjectsInfo = () => {
   const dispatch = useDispatch();
 
   const submitHandler = (e: SyntheticEvent) => {
-    const projectId = Date.now();
+    const uid = projectsData.length;
     e.preventDefault();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
     dispatch(
       addProjectsInfo({
         ...form.values,
-        projectId: projectId,
+        uid: uid,
         startDate: startD ? startD : null,
         endDate: endD ? endD : null,
       })
     );
+    form.reset();
   };
 
   return (
@@ -66,8 +73,8 @@ const ProjectsInfo = () => {
             <TextInput
               label='Link'
               placeholder='www.resume.ai'
-              key='degree'
-              {...form.getInputProps(`employmentType`)}
+              key='link'
+              {...form.getInputProps(`link`)}
               mt='md'
             />
             <Group grow py={20} align='top'>

@@ -7,11 +7,13 @@ import {
   IconPoint,
   IconReceipt2,
 } from '@tabler/icons-react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import classes from './DataInput.module.css';
+
+import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 
 import DisplayInfo from '@/components/DisplayInfo/DisplayInfo';
 import EducationInfo from '@/components/EducationInfo/EducationInfo';
@@ -27,42 +29,42 @@ const data = [
     label: 'Personal Info',
     icon: IconBellRinging,
     component: <PersonalInfo />,
-    type: 'personal',
+    type: resumeInputType.PERSONAL_INFO,
   },
   {
     index: 1,
     label: 'Summary',
     icon: IconBellRinging,
     component: <SummaryInfo />,
-    type: 'summary',
+    type: resumeInputType.SUMMARY_INFO,
   },
   {
     index: 2,
     label: 'Education',
     icon: IconReceipt2,
     component: <EducationInfo />,
-    type: 'education',
+    type: resumeInputType.EDUCATION_INFO,
   },
   {
     index: 3,
     label: 'Experiences',
     icon: IconReceipt2,
     component: <ExperienceInfo />,
-    type: 'experience',
+    type: resumeInputType.EXPERIENCE_INFO,
   },
   {
     index: 4,
     label: 'Project',
     icon: IconFingerprint,
     component: <ProjectsInfo />,
-    type: 'project',
+    type: resumeInputType.PROJECTS_INFO,
   },
   {
     index: 5,
     label: 'Skills',
     icon: IconKey,
     component: <SkillsInfo />,
-    type: 'skills',
+    type: resumeInputType.SKILLS_INFO,
   },
 ];
 
@@ -71,7 +73,6 @@ const DataInput = () => {
   const activated = data.filter((el) => el.type === infoType);
   const [active, setActive] = useState(activated[0].label);
   const router = useRouter();
-  const pathname = usePathname();
 
   return (
     <Box className={classes.container}>

@@ -12,9 +12,11 @@ import {
 import { MonthPickerInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { SyntheticEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { addExperienceInfo } from '@/lib/store/resumeDataSlice/experienceInfoSlice';
+import { RootState } from '@/lib/store/store';
 import { ExperienceInterface } from '@/lib/utils/interfaces';
 
 export const initialData: ExperienceInterface = {
@@ -35,12 +37,15 @@ const ExperienceInfo = () => {
     initialValues: initialData,
   });
   const dispatch = useDispatch();
+  const experienceData = useSelector(
+    (state: RootState) => state[resumeInputType.EXPERIENCE_INFO]
+  );
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
-    const uid = new Date().getTime();
+    const uid = experienceData.length;
     dispatch(
       addExperienceInfo({
         ...form.values,

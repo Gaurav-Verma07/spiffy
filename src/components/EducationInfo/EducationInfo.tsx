@@ -13,14 +13,16 @@ import { MonthPickerInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { IconCalendar } from '@tabler/icons-react';
 import { SyntheticEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { addEducationInfo } from '@/lib/store/resumeDataSlice/educationInfoSlice';
+import { RootState } from '@/lib/store/store';
 import { EducationInterface } from '@/lib/utils/interfaces';
 
 export const initialData: EducationInterface = {
   uid: Date.now(),
-  school: '',
+  title: '',
   degree: '',
   fieldOfStudy: '',
   startDate: null,
@@ -35,10 +37,13 @@ const EducationInfo = () => {
     initialValues: { ...initialData },
   });
   const dispatch = useDispatch();
+  const educationData = useSelector(
+    (state: RootState) => state[resumeInputType.EDUCATION_INFO]
+  );
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    const uid = Date.now();
+    const uid = educationData.length;
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
     dispatch(
@@ -60,8 +65,8 @@ const EducationInfo = () => {
             required
             label='School'
             placeholder='Ex. Babu Banarsi University'
-            key='school'
-            {...form.getInputProps(`school`)}
+            key='title'
+            {...form.getInputProps(`title`)}
           />
           <TextInput
             required
@@ -120,7 +125,7 @@ const EducationInfo = () => {
             label='Description'
             key='description'
             description='Any details you want to share from this degree'
-            placeholder='Topped the class by Rank 1, was head boy in high school'
+            placeholder='Topped the class by Rank 1, was head boy in high title'
             {...form.getInputProps(`description`)}
           />
         </Fieldset>
