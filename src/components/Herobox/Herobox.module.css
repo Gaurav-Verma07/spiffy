@@ -5,6 +5,7 @@
   height: 100vh;
   margin: 0 rem(60);
   margin-top: 50px;
+  position: relative;
 }
 
 .content {
@@ -42,6 +43,12 @@
   list-style-type: none;
 }
 
+.diamond1 {
+  position: absolute;
+  animation: heartbeat 5s infinite;
+  left: 50%;
+}
+
 @keyframes rotateImg {
   0% {
     transform: rotate(0);
@@ -69,5 +76,14 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(260deg);
   }
 }

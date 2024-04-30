@@ -98,7 +98,6 @@ const HeroHeader = () => {
     <Box
       style={{
         position: pathname === '/dashboard' ? 'fixed' : 'relative',
-        width: '100%',
         background: '#fff',
       }}
     >

@@ -1,7 +1,22 @@
+.main {
+  background-image: url('../../../public/images/bgLine.png');
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .box {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 50px;
+}
+
+.label {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin: 40px 0;
 }
 
 .right {

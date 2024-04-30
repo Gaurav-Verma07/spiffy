@@ -1,5 +1,6 @@
 import { Box, List, rem, Title } from '@mantine/core';
 import Image from 'next/image';
+import diamond1 from 'public/images/diamond1.png';
 import One from 'public/images/one.png';
 import Three from 'public/images/three.png';
 import Two from 'public/images/two.png';
@@ -11,6 +12,9 @@ import ExperienceInfo from '@/components/ExperienceInfo/ExperienceInfo';
 const Herobox = () => {
   return (
     <div className={classes.inner}>
+      <div className={classes.diamond1}>
+        <Image src={diamond1} alt='diamond 1' width={50} height={50} />
+      </div>
       <div className={classes.content}>
         <Title className={classes.title} fw={600}>
           Let <span className='highlight'> Sniffy</span> Craft
@@ -61,46 +65,6 @@ const Herobox = () => {
             has the perfect template to showcase your skills and experience.
           </List.Item>
         </List>
-
-        {/* <Box mt={30}>
-          <Box my={10} style={{ display: 'flex' }}>
-            <Image
-              // className={classes.img}
-              src={One}
-              width={40}
-              height={40}
-              alt='one'
-            />
-            <Text style={{ fontSize: 25 }} pl={5}>
-              {' '}
-              ATS friendly
-            </Text>
-          </Box>
-          <Box my={10} style={{ display: 'flex' }}>
-            <Image
-              // className={classes.img}
-              src={Two}
-              width={40}
-              height={40}
-              alt='one'
-            />
-            <Text style={{ fontSize: 25 }} pl={5}>
-              Latex Based
-            </Text>
-          </Box>
-          <Box my={10} style={{ display: 'flex' }}>
-            <Image
-              // className={classes.img}
-              src={Three}
-              width={40}
-              height={40}
-              alt='one'
-            />
-            <Text style={{ fontSize: 25 }} pl={5}>
-              Latest Templates
-            </Text>
-          </Box>
-        </Box> */}
       </div>
       <div>
         <Box

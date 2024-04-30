@@ -6,6 +6,7 @@ import * as React from 'react';
 import store from '@/lib/store/store';
 
 import FAQs from '@/components/FAQs/FAQs';
+import Footer from '@/components/Footer/Footer';
 import Herobox from '@/components/Herobox/Herobox';
 import HeroHeader from '@/components/HeroHeader/HeroHeader';
 import WaitingList from '@/components/WaitingList/WaitingList';
@@ -37,6 +38,7 @@ const HomePage = () => {
         <Herobox />
         <WhyUs />
         <FAQs />
+        <Footer />
       </section>
     </main>
   );
