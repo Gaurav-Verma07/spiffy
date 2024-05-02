@@ -1,16 +1,16 @@
 import {
-  Image,
-  Container,
-  Title,
   Button,
   Group,
-  Text,
+  Image,
   List,
-  ThemeIcon,
   rem,
+  Text,
+  ThemeIcon,
+  Title,
 } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import image from 'public/images/herobox.png';
+
 import classes from './Herobox.module.css';
 
 const Herobox = () => {
@@ -61,7 +61,7 @@ const Herobox = () => {
           </Button>
         </Group>
       </div>
-      <Image src={image.src} className={classes.image} />
+      <Image src={image.src} className={classes.image} alt='img' />
     </div>
   );
 };

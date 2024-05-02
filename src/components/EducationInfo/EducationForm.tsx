@@ -12,10 +12,9 @@ import { useForm } from '@mantine/form';
 import { IconCircleMinus, IconCirclePlus } from '@tabler/icons-react';
 import { SyntheticEvent, useState } from 'react';
 
-import {
-  EducationInterface,
-  initialData,
-} from '@/components/EducationInfo/EducationInfo';
+import { EducationInterface } from '@/lib/utils/interfaces';
+
+import { initialData } from '@/components/EducationInfo/EducationInfo';
 
 const EducationForm = ({
   current,
@@ -42,9 +41,9 @@ const EducationForm = ({
     validate: {
       school: (value) =>
         value.length < 2 ? ' name must have at least 2 letters' : null,
-      degree: (value) =>
+      degree: (value: any) =>
         value.length < 2 ? ' degree must have at least 2 letters' : null,
-      fieldOfStudy: (value) =>
+      fieldOfStudy: (value: any) =>
         value.length < 2 ? ' field must have at least 2 letters' : null,
       // startDate: (value)=>(value.length<2? ' name must have at least 2 letters': null),
       // endDate: (value)=>(value.length<2? ' name must have at least 2 letters': null),

@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import { Center, Tooltip, UnstyledButton, Stack, rem } from '@mantine/core';
+import { Center, rem, Stack, Tooltip, UnstyledButton } from '@mantine/core';
 import {
-  IconHome2,
-  IconGauge,
+  Icon360,
+  IconCalendarStats,
   IconDeviceDesktopAnalytics,
   IconFingerprint,
-  IconCalendarStats,
-  IconUser,
-  IconSettings,
+  IconGauge,
+  IconHome2,
   IconLogout,
+  IconSettings,
   IconSwitchHorizontal,
-  Icon360,
+  IconUser,
 } from '@tabler/icons-react';
+import { useState } from 'react';
+
 import classes from './DashboardNavbar.module.css';
 
 interface NavbarLinkProps {
