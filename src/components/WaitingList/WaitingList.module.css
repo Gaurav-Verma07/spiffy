@@ -1,5 +1,6 @@
 .main {
   position: 'fixed';
+  width: auto;
   bottom: rem(50);
   left: 50%;
   transform: 'translateX(-50%)';
@@ -11,7 +12,7 @@
 }
 
 .input {
-  width: 350px !important;
+  max-width: 350px !important;
   border-left: none;
   border-top: none;
   border-right: none;
