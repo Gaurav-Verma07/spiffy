@@ -42,7 +42,10 @@ const Authentication = (props: PaperProps) => {
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
+    console.log(form.getValues());
+    console.log(form.isValid());
     if (form.isValid()) {
+      console.log('subimit');
       router.push('/home');
     }
   };

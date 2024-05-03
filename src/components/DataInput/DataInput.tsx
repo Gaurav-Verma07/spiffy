@@ -69,7 +69,7 @@ const data = [
 ];
 
 const DataInput = () => {
-  const infoType = useSearchParams().get('type');
+  const infoType = useSearchParams()?.get('type');
   const activated = data.filter((el) => el.type === infoType);
   const [active, setActive] = useState(activated[0].label);
   const router = useRouter();

@@ -11,7 +11,7 @@ import { RootState } from '@/lib/store/store';
 const ShowDraggableData = () => {
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
-  const formType: string = searchParams.get('type') || '';
+  const formType: string = searchParams?.get('type') || '';
 
   //We'll only show data on experience, education and projects for now
   const selectedData: any = useSelector((state: RootState) => {
@@ -29,7 +29,7 @@ const ShowDraggableData = () => {
     formType === resumeInputType.SUMMARY_INFO ||
     formType === resumeInputType.SKILLS_INFO
   )
-    return;
+    return <></>;
 
   const deleteHandler = (uid: number) => {
     if (formType === resumeInputType.EDUCATION_INFO)
