@@ -13,6 +13,7 @@ import Portfolio from './portfolio.png';
 import Twitter from './twitter.png';
 
 const initialValues: PersonalInfoInterface = {
+  uid: Date.now(),
   name: '',
   email: '',
   number: '',
@@ -36,10 +37,12 @@ const PersonalInfo = () => {
 
   const saveHandler = (e: SyntheticEvent) => {
     e.preventDefault();
+    const uid = Date.now();
     if (form.isValid()) {
       dispatch(
         addPersonalInfo({
           ...form.values,
+          uid: uid,
         })
       );
     } else {

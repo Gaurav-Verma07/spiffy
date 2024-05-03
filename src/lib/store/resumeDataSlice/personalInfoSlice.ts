@@ -4,6 +4,7 @@ import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { PersonalInfoInterface } from '@/lib/utils/interfaces';
 
 const initialState: PersonalInfoInterface = {
+  uid: Date.now(),
   name: '',
   email: '',
   number: null,

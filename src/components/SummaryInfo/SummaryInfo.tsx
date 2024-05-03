@@ -18,10 +18,12 @@ const SummaryInfo = () => {
   });
   const sumbitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
+    const uid: number = Date.now();
     if (form.values.summary !== '') {
       dispatch(
         addSummaryInfo({
           summary: form.values.summary,
+          uid: uid,
         })
       );
     }

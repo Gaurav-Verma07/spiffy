@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { SummaryInfoInterface } from '@/lib/utils/interfaces';
 
 const initialState: SummaryInfoInterface = {
+  uid: Date.now(),
   summary: '',
 };
 export const summaryInfoSlice = createSlice({

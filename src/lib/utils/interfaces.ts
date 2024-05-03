@@ -1,4 +1,5 @@
 export interface PersonalInfoInterface {
+  uid: number;
   name: string;
   email: string;
   number?: string | null;
@@ -10,6 +11,7 @@ export interface PersonalInfoInterface {
 }
 
 export interface SummaryInfoInterface {
+  uid: number;
   summary: string | null;
 }
 
