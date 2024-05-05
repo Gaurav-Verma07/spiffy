@@ -2,6 +2,7 @@ import { Box, Button, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { SyntheticEvent } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import classes from './SummaryInfo.module.css';
 
@@ -18,12 +19,12 @@ const SummaryInfo = () => {
   });
   const sumbitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    const uid: number = Date.now();
+    const uid: string = uuidv4();
     if (form.values.summary !== '') {
       dispatch(
         addSummaryInfo({
           summary: form.values.summary,
-          uid: uid,
+          uid,
         })
       );
     }

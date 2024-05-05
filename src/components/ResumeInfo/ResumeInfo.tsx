@@ -3,18 +3,25 @@ import { useForm } from '@mantine/form';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 import { SyntheticEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { experienceLevel, resumeType } from '@/lib/constants/resumeInfo';
+import { addResumeInfo } from '@/lib/store/resumeDataSlice/resumeInfoSlice';
+import { ResumeInfoInterface } from '@/lib/utils/interfaces';
 
+const initialValues: ResumeInfoInterface = {
+  uid: '',
+  resumeName: '',
+  jobField: '',
+  experienceLevel: '',
+};
 const ResumeInfo = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const form = useForm({
-    initialValues: {
-      resumeName: '',
-      jobField: '',
-      experienceLevel: '',
-    },
+    initialValues,
     validate: {
       resumeName: (val) => (val.length < 2 ? null : 'resume name is required'),
     },
@@ -22,8 +29,14 @@ const ResumeInfo = () => {
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    const resumeID = '239u420u34';
-    router.push(`home/${resumeID}?type=personal`);
+    const uid = uuidv4();
+    dispatch(
+      addResumeInfo({
+        ...form.values,
+        uid,
+      })
+    );
+    router.push(`home/${uid}?type=personal`);
   };
 
   return (

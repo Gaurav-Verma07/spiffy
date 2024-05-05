@@ -13,6 +13,7 @@ import { MonthPickerInput } from '@mantine/dates';
 import { useForm } from '@mantine/form';
 import { SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { addExperienceInfo } from '@/lib/store/resumeDataSlice/experienceInfoSlice';
@@ -20,7 +21,8 @@ import { RootState } from '@/lib/store/store';
 import { ExperienceInterface } from '@/lib/utils/interfaces';
 
 export const initialData: ExperienceInterface = {
-  uid: 0,
+  uid: '',
+  indexID: 0,
   title: '',
   employmentType: '',
   companyName: '',
@@ -45,11 +47,13 @@ const ExperienceInfo = () => {
     e.preventDefault();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
-    const uid = experienceData.length;
+    const indexID = experienceData.length;
+    const uid = uuidv4();
     dispatch(
       addExperienceInfo({
         ...form.values,
-        uid: uid,
+        uid,
+        indexID,
         startDate: startD ? startD : null,
         endDate: endD ? endD : null,
       })

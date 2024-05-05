@@ -14,6 +14,7 @@ import { useForm } from '@mantine/form';
 import { IconCalendar } from '@tabler/icons-react';
 import { SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { addProjectsInfo } from '@/lib/store/resumeDataSlice/projectsInfoSlice';
@@ -21,7 +22,8 @@ import { RootState } from '@/lib/store/store';
 import { ProjectsInterface } from '@/lib/utils/interfaces';
 
 export const initialData: ProjectsInterface = {
-  uid: 0,
+  uid: '',
+  indexID: 0,
   title: '',
   link: '',
   startDate: null,
@@ -42,14 +44,16 @@ const ProjectsInfo = () => {
   const dispatch = useDispatch();
 
   const submitHandler = (e: SyntheticEvent) => {
-    const uid = projectsData.length;
+    const indexID: number = projectsData.length;
+    const uid: string = uuidv4();
     e.preventDefault();
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
     dispatch(
       addProjectsInfo({
         ...form.values,
-        uid: uid,
+        uid,
+        indexID,
         startDate: startD ? startD : null,
         endDate: endD ? endD : null,
       })

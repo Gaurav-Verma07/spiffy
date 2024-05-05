@@ -16,7 +16,7 @@ export const experienceInfoSlice = createSlice({
     },
     deleteExperienceInfo: (
       state: ExperienceInterface[],
-      action: { payload: { uid: number }; type: string }
+      action: { payload: { uid: string }; type: string }
     ) => {
       const index = state.findIndex(
         (info: ExperienceInterface) => info.uid === action.payload.uid

@@ -3,6 +3,7 @@ import { useForm } from '@mantine/form';
 import Image from 'next/image';
 import { SyntheticEvent, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { addPersonalInfo } from '@/lib/store/resumeDataSlice/personalInfoSlice';
 import { PersonalInfoInterface } from '@/lib/utils/interfaces';
@@ -13,7 +14,7 @@ import Portfolio from './portfolio.png';
 import Twitter from './twitter.png';
 
 const initialValues: PersonalInfoInterface = {
-  uid: Date.now(),
+  uid: uuidv4(),
   name: '',
   email: '',
   number: '',
@@ -37,12 +38,12 @@ const PersonalInfo = () => {
 
   const saveHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    const uid = Date.now();
+    const uid = uuidv4();
     if (form.isValid()) {
       dispatch(
         addPersonalInfo({
           ...form.values,
-          uid: uid,
+          uid,
         })
       );
     } else {

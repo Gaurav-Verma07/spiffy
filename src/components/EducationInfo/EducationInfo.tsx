@@ -14,14 +14,15 @@ import { useForm } from '@mantine/form';
 import { IconCalendar } from '@tabler/icons-react';
 import { SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
 import { resumeInputType } from '@/lib/enums/resumeDataEnum';
 import { addEducationInfo } from '@/lib/store/resumeDataSlice/educationInfoSlice';
 import { RootState } from '@/lib/store/store';
 import { EducationInterface } from '@/lib/utils/interfaces';
-
 export const initialData: EducationInterface = {
-  uid: Date.now(),
+  uid: uuidv4(),
+  indexID: 0,
   title: '',
   degree: '',
   fieldOfStudy: '',
@@ -43,13 +44,15 @@ const EducationInfo = () => {
 
   const submitHandler = (e: SyntheticEvent) => {
     e.preventDefault();
-    const uid = educationData.length;
+    const uid = uuidv4();
+    const indexID = educationData.length;
     const startD = form.values.startDate?.toString();
     const endD = form.values.endDate?.toString();
     dispatch(
       addEducationInfo({
         ...form.values,
-        uid: uid,
+        indexID,
+        uid,
         startDate: startD,
         endDate: endD,
       })

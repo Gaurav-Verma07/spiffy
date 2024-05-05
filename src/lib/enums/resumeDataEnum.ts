@@ -5,4 +5,5 @@ export enum resumeInputType {
   EXPERIENCE_INFO = 'experience',
   PROJECTS_INFO = 'projects',
   SKILLS_INFO = 'skills',
+  RESUME_INFO = 'resume_info',
 }

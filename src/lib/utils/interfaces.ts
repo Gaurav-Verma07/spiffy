@@ -1,5 +1,5 @@
 export interface PersonalInfoInterface {
-  uid: number;
+  uid: string;
   name: string;
   email: string;
   number?: string | null;
@@ -11,12 +11,13 @@ export interface PersonalInfoInterface {
 }
 
 export interface SummaryInfoInterface {
-  uid: number;
+  uid: string;
   summary: string | null;
 }
 
 export interface EducationInterface {
-  uid: number;
+  uid: string;
+  indexID: number;
   title: string;
   degree?: string;
   fieldOfStudy?: string;
@@ -27,7 +28,8 @@ export interface EducationInterface {
 }
 
 export interface ExperienceInterface {
-  uid: number;
+  uid: string;
+  indexID: number;
   title: string;
   employmentType: string;
   companyName: string;
@@ -39,7 +41,8 @@ export interface ExperienceInterface {
 }
 
 export interface ProjectsInterface {
-  uid: number;
+  uid: string;
+  indexID: number;
   title: string;
   link?: string;
   startDate?: string | null;
@@ -49,3 +52,10 @@ export interface ProjectsInterface {
 }
 
 export type SkillsInterface = string[];
+
+export type ResumeInfoInterface = {
+  uid: string;
+  resumeName: string;
+  jobField?: string | null;
+  experienceLevel?: string | null;
+};

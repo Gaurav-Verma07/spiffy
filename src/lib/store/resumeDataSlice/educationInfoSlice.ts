@@ -16,7 +16,7 @@ export const educationInfoSlice = createSlice({
     },
     deleteEducationInfo: (
       state: EducationInterface[],
-      action: { payload: { uid: number }; type: string }
+      action: { payload: { uid: string }; type: string }
     ) => {
       const index = state.findIndex(
         (info: EducationInterface) => info.uid === action.payload.uid

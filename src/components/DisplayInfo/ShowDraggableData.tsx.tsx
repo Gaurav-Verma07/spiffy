@@ -31,7 +31,7 @@ const ShowDraggableData = () => {
   )
     return <></>;
 
-  const deleteHandler = (uid: number) => {
+  const deleteHandler = (uid: string) => {
     if (formType === resumeInputType.EDUCATION_INFO)
       dispatch(deleteEducationInfo({ uid }));
     if (formType === resumeInputType.EXPERIENCE_INFO)
