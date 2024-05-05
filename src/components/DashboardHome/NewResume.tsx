@@ -1,4 +1,5 @@
-import { Box, Card, Group, Image, Menu, rem, Text } from '@mantine/core';
+import { Box, Card, Group, Image, Menu, Modal, rem, Text } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import {
   IconAnalyze,
   IconDotsVertical,
@@ -7,10 +8,12 @@ import {
   IconTrash,
   IconUser,
 } from '@tabler/icons-react';
-import { useRouter } from 'next/navigation';
+
+import ResumeInfo from '@/components/ResumeInfo/ResumeInfo';
 
 const NewResume = () => {
-  const router = useRouter();
+  const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <div style={{ display: 'flex' }}>
       <Card
@@ -106,13 +109,25 @@ const NewResume = () => {
             display: 'flex',
             cursor: 'pointer',
           }}
-          onClick={() => {
-            router.push('/home/input?type=personal');
-          }}
+          // onClick={() => {
+          //   router.push('/home/input?type=personal');
+          // }}
+          onClick={open}
         >
           <IconPlus size={40} style={{ margin: 12 }} />
         </div>
       </Card>
+      <Modal
+        overlayProps={{
+          backgroundOpacity: 0.55,
+          blur: 3,
+        }}
+        opened={opened}
+        onClose={close}
+        title='Resume Info'
+      >
+        <ResumeInfo />
+      </Modal>
     </div>
   );
 };
