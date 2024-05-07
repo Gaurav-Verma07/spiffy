@@ -17,7 +17,7 @@ const Herobox = () => {
       </div>
       <div className={classes.content}>
         <Title className={classes.title} fw={600}>
-          Let <span className='highlight'> Sniffy</span> Craft
+          Let <span className='highlight'> Spifffy</span> Craft
           <br /> Your Career Narrative <br /> with
           <span className='highlight1'> AI Precision </span>
         </Title>
@@ -49,7 +49,7 @@ const Herobox = () => {
               alt='one'
             />
             <span style={{ fontSize: rem(20) }}>Latex Based</span> – With
-            Sniffy, your resume is crafted using LaTeX, a professional
+            Spifffy, your resume is crafted using LaTeX, a professional
             typesetting system favored for its precision and elegance
           </List.Item>
           <List.Item>
@@ -61,8 +61,9 @@ const Herobox = () => {
               alt='one'
             />
             <span style={{ fontSize: rem(20) }}>Latest Templates</span> –
-            Whether you're in a creative field or a traditional industry, Sniffy
-            has the perfect template to showcase your skills and experience.
+            Whether you're in a creative field or a traditional industry,
+            Spifffy has the perfect template to showcase your skills and
+            experience.
           </List.Item>
         </List>
       </div>
@@ -77,10 +78,10 @@ const Herobox = () => {
             padding: 7,
           }}
         >
-          <span className='highlight'>Sniffy</span> not only saves you time but
+          <span className='highlight'>Spifffy</span> not only saves you time but
           also ensures<b> accuracy and consistency </b>. No more worrying about
           outdated formats or missing information. With{' '}
-          <span className='highlight'>Sniffy</span>, you can focus on what
+          <span className='highlight'>Spifffy</span>, you can focus on what
           matters – crafting your career story for success.
         </Box>
         <ExperienceInfo />
