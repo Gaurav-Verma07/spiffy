@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { experienceLevel, resumeType } from '@/lib/constants/resumeInfo';
 import { addResumeInfo } from '@/lib/store/resumeDataSlice/resumeInfoSlice';
+import { AppDispatch } from '@/lib/store/store';
 import { ResumeInfoInterface } from '@/lib/utils/interfaces';
 
 const initialValues: ResumeInfoInterface = {
@@ -16,14 +17,15 @@ const initialValues: ResumeInfoInterface = {
   jobField: '',
   experienceLevel: '',
 };
+
 const ResumeInfo = () => {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const form = useForm({
     initialValues,
     validate: {
-      resumeName: (val) => (val.length < 2 ? null : 'resume name is required'),
+      resumeName: (val) => (val.length < 2 ? 'Resume name is required' : null),
     },
   });
 
@@ -36,7 +38,7 @@ const ResumeInfo = () => {
         uid,
       })
     );
-    router.push(`home/${uid}?type=personal`);
+    router.push(`/home/${uid}?type=personal`);
   };
 
   return (
@@ -65,15 +67,11 @@ const ResumeInfo = () => {
           searchable
         />
         <Button variant='transparent' ml={0} pl={0} color='grey'>
-          Import from{'  '}
-          <IconBrandLinkedin color='blue' />
+          Import from <IconBrandLinkedin color='blue' />
         </Button>
         <Divider my={10} />
         <Group grow my={20}>
-          {/* <Button variant='outline' color='red'>
-            Cancel
-          </Button> */}
-          <Button type='submit' disabled={form.isValid()} variant=''>
+          <Button type='submit' disabled={!form.isValid()}>
             Continue
           </Button>
         </Group>

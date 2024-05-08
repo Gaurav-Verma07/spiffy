@@ -24,8 +24,8 @@ const NewResume = () => {
   console.log(resumesInfoData);
 
   return (
-    <div style={{ display: 'flex' }}>
-      {resumesInfoData.map((el: ResumeInfoInterface, index) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {resumesInfoData.data.map((el: ResumeInfoInterface, index) => (
         <Card
           key={index}
           shadow='sm'
@@ -68,7 +68,6 @@ const NewResume = () => {
                   />
                 </Menu.Target>
                 <Menu.Dropdown>
-                  <Menu.Label>Application</Menu.Label>
                   <Menu.Item
                     leftSection={
                       <IconEdit style={{ width: rem(14), height: rem(14) }} />
