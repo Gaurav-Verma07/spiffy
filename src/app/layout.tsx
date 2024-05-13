@@ -1,7 +1,9 @@
 import { ColorSchemeScript, createTheme, MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { Metadata } from 'next';
 import * as React from 'react';
 
+import '@mantine/notifications/styles.css';
 import '@mantine/core/styles.css';
 import '@/styles/globals.css';
 import '@mantine/tiptap/styles.css';
@@ -37,7 +39,9 @@ export const metadata: Metadata = {
   },
 };
 
-const theme = createTheme({});
+const theme = createTheme({
+  fontFamily: 'Lato, sans-serif',
+});
 
 export default function RootLayout({
   children,
@@ -51,7 +55,10 @@ export default function RootLayout({
       </head>
       <Providers>
         <body>
-          <MantineProvider theme={theme}>{children}</MantineProvider>
+          <MantineProvider theme={theme}>
+            <Notifications />
+            {children}
+          </MantineProvider>
         </body>
       </Providers>
     </html>

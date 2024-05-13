@@ -48,7 +48,12 @@ const data = [
     icon: IconFingerprint,
     component: <ProjectsInfo />,
   },
-  { index: 5, label: 'Skills', icon: IconKey, component: <SkillsInfo /> },
+  {
+    index: 5,
+    label: 'Skills',
+    icon: IconKey,
+    component: <SkillsInfo />,
+  },
 ];
 
 const DataInput = () => {

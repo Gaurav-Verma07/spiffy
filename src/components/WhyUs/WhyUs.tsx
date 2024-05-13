@@ -1,4 +1,4 @@
-import { Box, Text, Title } from '@mantine/core';
+import { Box, Divider, Text, Title } from '@mantine/core';
 import Image from 'next/image';
 import aifriendly from 'public/images/aifriendly.png';
 import ats from 'public/images/ats.png';
@@ -14,6 +14,13 @@ const data = [
       'Our platform utilizes cutting-edge AI technology to create professional resumes quickly and efficiently.',
     img: aifriendly,
   },
+  {
+    heading: 'Latex Based',
+    content:
+      ' With our service, you can rest assured that your resume will not only look professional but also be easily parsed by ATS, increasing your chances of landing interviews.',
+    img: aifriendly,
+  },
+
   {
     heading: 'ATS-Friendly',
     content:
@@ -36,19 +43,30 @@ const data = [
 
 const WhyUs = () => {
   return (
-    <Box>
+    <Box className={classes.main}>
+      <Divider
+        classNames={{ label: classes.label }}
+        my='xs'
+        label='Why Us?'
+        variant='dashed'
+        labelPosition='center'
+      />
       {data.map((_el, index: number) => (
         <Box key={index} className={classes.box}>
           <div className='left' style={{ order: index % 2 == 0 ? 1 : 0 }}>
             {' '}
-            <Image src={_el.img} alt='image' width={500} height={500} />
+            <Image src={_el.img} alt='image' width={250} height={250} />
           </div>
           <div
             className={classes.right}
             style={{ order: index % 2 == 0 ? 0 : 1 }}
           >
-            <Title variant='h1' py={20} size={50}>
-              {_el.heading}
+            <Title variant='h1' py={20} size={30}>
+              <span
+                className={`${index % 2 == 0 ? 'highlight1' : 'highlight'}`}
+              >
+                {_el.heading}
+              </span>
             </Title>
             <Text c='grey'>{_el.content}</Text>
           </div>
